@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Marta Isabelle — Frontend Developer</title>
+<meta name="description" content="Marta Isabelle, desenvolvedora frontend especializada em React, JavaScript e CSS. Cursando Ciencia e Tecnologia na UFRN, Rio Grande do Norte."/>
+<meta name="author" content="Marta Isabelle"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="Marta Isabelle — Frontend Developer"/>
+<meta property="og:description" content="Criando interfaces intuitivas e acessiveis. Desenvolvedora frontend baseada no RN, Brasil."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Marta Isabelle — Frontend Developer"/>
+<meta name="twitter:description" content="Criando interfaces intuitivas e acessiveis."/>
+<link rel="icon" href="favicon.png" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+<canvas id="starfield"></canvas>
+<div id="cur"></div>
+<div id="ring"></div>
+<div class="glow"></div>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">MI.dev</span>
+  <ul class="nav-links">
+    <li><a href="#skills" data-i="nav_skills">Skills</a></li>
+    <li><a href="#work" data-i="nav_work">Trabalho</a></li>
+    <li><a href="#about" data-i="nav_about">Sobre</a></li>
+    <li><a href="#contact" data-i="nav_contact">Contato</a></li>
+  </ul>
+  <div class="nav-r">
+    <div class="nav-soc">
+      <a href="https://www.linkedin.com/in/martaisabelle/" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/martaisabelle" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+    </div>
+    <div class="nav-ctrl">
+      <button class="ibtn" id="themeBtn" aria-label="Toggle theme">
+        <svg id="themeIco" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="ibtn" id="langBtn">
+        <svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+        <span id="langLbl">PT</span>
+      </button>
+    </div>
+  </div>
+  <button class="ham" id="hamBtn" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu de navegacao">
+  <a href="#skills" class="mob-link">Skills</a>
+  <a href="#work" class="mob-link">Trabalho</a>
+  <a href="#about" class="mob-link">Sobre</a>
+  <a href="#contact" class="mob-link">Contato</a>
+</div>
+
+<main id="main">
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow" data-i="hero_eyebrow">// desenvolvedora frontend</p>
+  <h1 class="hero-name">
+    <div class="name-wrap" id="nameWrap">
+      <span class="name-default">Marta<br><span class="highlight">Isabelle.</span></span>
+      <span class="name-hover">
+        <span class="nl"><span class="c-br">&lt;</span><span class="c-tag">MartaIsabelle</span></span>
+        <span class="nl ind"><span class="c-attr">onClick</span><span class="c-pun">={</span><span class="c-val">reload</span><span class="c-pun">}</span></span>
+        <span class="nl"><span class="c-br">/&gt;</span></span>
+      </span>
+    </div>
+  </h1>
+  <p class="hero-role" data-i="hero_role">criando interfaces que ganham vida</p>
+  <p class="hero-desc" data-i="hero_desc">Sou desenvolvedora frontend com paixão por criar experiências de usuário intuitivas e acessíveis. Cursando Bacharelado em Ciencia e Tecnologia na UFRN - transformando ideias em interfaces limpas e com proposito.</p>
+  <div class="hero-cta">
+    <a href="#work" class="btn-p" data-i="hero_cta_work">Ver trabalhos</a>
+    <a href="#contact" class="btn-o" data-i="hero_cta_contact">Entre em contato</a>
+    <a href="#" class="btn-cv" id="cvBtn">
+      <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+      <span data-i="hero_cta_cv">Baixar CV</span>
+    </a>
+  </div>
+  <div class="soc-links">
+    <a href="https://www.linkedin.com/in/martaisabelle/" target="_blank" class="soc-link">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/martaisabelle" target="_blank" class="soc-link">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      GitHub
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <a href="#skills" class="scroll-arrow" aria-label="Scroll down">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-hdr"><span class="sec-num">01.</span><h2 class="sec-ttl" data-i="skills_title">Habilidades</h2><div class="sec-line"></div></div>
+  <div class="skills-g">
+    <div class="sk-card"><div class="sk-icon">&#9889;</div><div class="sk-name">HTML &amp; CSS</div><div class="sk-desc" data-i="skill_html">Estrutura semantica e estilizacao moderna com Flexbox, Grid e animacoes.</div></div>
+    <div class="sk-card"><div class="sk-icon">&#10022;</div><div class="sk-name">JavaScript</div><div class="sk-desc" data-i="skill_js">Logica, interatividade e manipulacao do DOM para experiencias dinamicas.</div></div>
+    <div class="sk-card"><div class="sk-icon">&#9672;</div><div class="sk-name">React.js</div><div class="sk-desc" data-i="skill_react">Componentes reutilizaveis e interfaces reativas com hooks e state management.</div></div>
+    <div class="sk-card"><div class="sk-icon">&#9678;</div><div class="sk-name">Node.js</div><div class="sk-desc" data-i="skill_node">JavaScript server-side para servicos backend rapidos e escalaveis.</div></div>
+    <div class="sk-card"><div class="sk-icon">&#11041;</div><div class="sk-name">Git / GitHub</div><div class="sk-desc" data-i="skill_git">Controle de versao, colaboracao e boas praticas de desenvolvimento.</div></div>
+    <div class="sk-card"><div class="sk-icon">&#9650;</div><div class="sk-name" data-i="skill_resp_title">Design Responsivo</div><div class="sk-desc" data-i="skill_resp">Layouts que funcionam perfeitamente em qualquer tamanho de tela.</div></div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="sec-hdr"><span class="sec-num">02.</span><h2 class="sec-ttl" data-i="work_title">Trabalho</h2><div class="sec-line"></div></div>
+  <p style="font-family:'Space Mono',monospace;font-size:13px;color:var(--tm);margin-bottom:2rem" data-i="work_sub">// alguns dos meus trabalhos recentes</p>
+  <div class="work-g">
+    <div class="proj"><div class="proj-img"><span data-i="proj_img">// adicionar imagem</span></div><div class="proj-num">01 --</div><div class="proj-ttl" data-i="p1t">Nome do Projeto</div><div class="proj-desc" data-i="p1d">Descreva o que este projeto faz, qual problema ele resolve e o que voce aprendeu.</div><div class="proj-tags"><span class="tag">React</span><span class="tag">CSS</span></div></div>
+    <div class="proj"><div class="proj-img"><span data-i="proj_img">// adicionar imagem</span></div><div class="proj-num">02 --</div><div class="proj-ttl" data-i="p2t">Nome do Projeto</div><div class="proj-desc" data-i="p2d">Descreva o que este projeto faz, qual problema ele resolve e o que voce aprendeu.</div><div class="proj-tags"><span class="tag">JavaScript</span><span class="tag">API</span></div></div>
+    <div class="proj"><div class="proj-img"><span data-i="proj_img">// adicionar imagem</span></div><div class="proj-num">03 --</div><div class="proj-ttl" data-i="p3t">Nome do Projeto</div><div class="proj-desc" data-i="p3d">Descreva o que este projeto faz, qual problema ele resolve e o que voce aprendeu.</div><div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span></div></div>
+    <div class="proj"><div class="proj-img"><span data-i="proj_img">// adicionar imagem</span></div><div class="proj-num">04 --</div><div class="proj-ttl" data-i="p4t">Nome do Projeto</div><div class="proj-desc" data-i="p4d">Descreva o que este projeto faz, qual problema ele resolve e o que voce aprendeu.</div><div class="proj-tags"><span class="tag">React</span><span class="tag">Node.js</span></div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-hdr"><span class="sec-num">03.</span><h2 class="sec-ttl" data-i="about_title">Sobre mim</h2><div class="sec-line"></div></div>
+  <div class="about-g">
+    <div class="about-txt">
+      <p data-i="about_p1">Olá! Sou <strong>Marta Isabelle</strong>, desenvolvedora frontend com paixão por criar experiências de usuário intuitivas e acessíveis.</p>
+      <p data-i="about_p2">Cursando Bacharelado em <strong>Ciencia e Tecnologia na UFRN</strong>. Gosto de colaborar e transformar ideias em interfaces limpas e com proposito.</p>
+      <p data-i="about_p3">Cada projeto e uma chance de crescer e entregar algo que as pessoas adoram usar.</p>
+    </div>
+    <div class="stats-g">
+      <div class="stat"><div class="stat-v">UFRN</div><div class="stat-l" data-i="stat_uni">B.Sc. Ciencia e Tecnologia</div></div>
+      <div class="stat"><div class="stat-v">100%</div><div class="stat-l" data-i="stat_ded">dedicação</div></div>
+      <div class="stat"><div class="stat-v">RN</div><div class="stat-l" data-i="stat_loc">Rio Grande do Norte</div></div>
+      <div class="stat"><div class="stat-v">↑</div><div class="stat-l" data-i="stat_grow">sempre evoluindo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <div class="contact-g">
+      <div>
+        <p class="c-eyebrow" data-i="c_eyebrow">// vamos trabalhar juntos</p>
+        <h2 class="c-ttl" data-i="c_title">Vamos transformar a sua visão em realidade juntos!</h2>
+        <p class="c-sub" data-i="c_sub">Aberta a novas oportunidades e colaborações. Entre em contato.</p>
+        <a href="mailto:dev.martacosta@outlook.com" class="c-email">dev.martacosta@outlook.com</a>
+        <div class="c-socs">
+          <a href="https://www.linkedin.com/in/martaisabelle/" target="_blank" class="c-soc">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            linkedin/martaisabelle
+          </a>
+          <a href="https://github.com/martaisabelle" target="_blank" class="c-soc">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            github/martaisabelle
+          </a>
+        </div>
+      </div>
+      <div>
+        <form class="c-form" id="cForm" novalidate>
+          <input type="text" name="website" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none"/>
+          <div class="f-field">
+            <label class="f-lbl" for="f-name" data-i="f_name">Nome</label>
+            <input type="text" id="f-name" name="name" class="f-in" placeholder="Seu nome" maxlength="100" autocomplete="name" required/>
+            <span class="f-err" id="err-name"></span>
+          </div>
+          <div class="f-field">
+            <label class="f-lbl" for="f-company" data-i="f_company">Empresa</label>
+            <input type="text" id="f-company" name="company" class="f-in" placeholder="Sua empresa" maxlength="100" autocomplete="organization"/>
+          </div>
+          <div class="f-field">
+            <label class="f-lbl" for="f-email">E-mail</label>
+            <input type="email" id="f-email" name="email" class="f-in" placeholder="contato@empresa.com" maxlength="150" autocomplete="email" required/>
+            <span class="f-err" id="err-email"></span>
+          </div>
+          <div class="f-field">
+            <label class="f-lbl" for="f-msg" data-i="f_msg">Mensagem</label>
+            <textarea id="f-msg" name="message" class="f-ta" placeholder="Conte-me sobre seu projeto..." maxlength="1000" required></textarea>
+            <span class="f-counter" id="msg-counter">0 / 1000</span>
+            <span class="f-err" id="err-msg"></span>
+          </div>
+          <button type="submit" class="f-btn" id="submitBtn" data-i="f_send">Enviar mensagem</button>
+          <p class="f-status" id="f-status" role="alert" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<div class="wrap">
+<footer>
+  <div class="foot-in">
+    <span class="foot-copy">2024 <span data-i="f_dev">Desenvolvido por</span> Marta Isabelle. <span data-i="f_rights">Todos os direitos reservados.</span></span>
+    <div class="foot-clock">
+      <span>BR</span>
+      <span data-i="clock_lbl">Brasil</span>
+      <span class="clock-t" id="clockT">00:00</span>
+      <span id="clockP"></span>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
