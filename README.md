@@ -2,6 +2,10 @@
 
 Frontend developer portfolio showcasing projects, skills, and experiments.
 
+## Preview
+
+![Portfolio preview](img/screenshot.png)
+
 ## Technologies
 - HTML
 - CSS
