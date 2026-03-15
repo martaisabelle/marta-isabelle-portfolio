@@ -152,17 +152,13 @@ var ring = document.getElementById('ring');
 var mx = 0, my = 0, rx = 0, ry = 0;
 document.addEventListener('mousemove', function(e) {
   mx = e.clientX; my = e.clientY;
-  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+  cur.style.transform = 'translate3d(calc(' + mx + 'px - 50%), calc(' + my + 'px - 50%), 0)';
 });
 (function animRing() {
   rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  ring.style.transform = 'translate3d(calc(' + rx + 'px - 50%), calc(' + ry + 'px - 50%), 0)';
   requestAnimationFrame(animRing);
 })();
-document.querySelectorAll('a, button, input, textarea').forEach(function(el) {
-  el.addEventListener('mouseenter', function() { ring.style.width='56px'; ring.style.height='56px'; cur.style.opacity='0'; });
-  el.addEventListener('mouseleave', function() { ring.style.width='36px'; ring.style.height='36px'; cur.style.opacity='1'; });
-});
 
 document.getElementById('nameWrap').addEventListener('click', function() { location.reload(); });
 
@@ -358,4 +354,50 @@ if (hamBtn) {
   } else {
     setTimeout(initStarfield, 200);
   }
+})();
+
+// ── Back to top ──
+(function() {
+  var btt = document.getElementById('btt');
+  if (!btt) return;
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      btt.classList.add('visible');
+    } else {
+      btt.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  btt.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// ── E-mail dinâmico (anti-scraping) ──
+(function() {
+  var u = 'dev.martacosta';
+  var d = 'outlook.com';
+  var el = document.getElementById('c-email-link');
+  if (!el) return;
+  var email = u + '@' + d;
+  el.textContent = email;
+  el.href = 'mailto:' + email;
+})();
+
+// ── Copy email button ──
+(function() {
+  var btn = document.getElementById('copy-email-btn');
+  var feedback = document.getElementById('copy-feedback');
+  if (!btn || !feedback) return;
+  var timer;
+  btn.addEventListener('click', function() {
+    var email = document.getElementById('c-email-link').textContent;
+    navigator.clipboard.writeText(email).then(function() {
+      feedback.textContent = 'Copiado!';
+      feedback.classList.add('show');
+      clearTimeout(timer);
+      timer = setTimeout(function() { feedback.classList.remove('show'); }, 1800);
+    });
+  });
 })();
