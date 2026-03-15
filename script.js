@@ -31,6 +31,7 @@ var T = {
     f_error:'⚠ Algo deu errado. Tente novamente mais tarde.',f_conn:'⚠ Algo deu errado. Tente novamente mais tarde.',
     f_dev:'Desenvolvido por',f_rights:'Todos os direitos reservados.',
     availability:'Disponível para novos projetos',
+    copied:'Copiado!',
     clock_lbl:'Brasil',pm:'manha',pa:'tarde',pe:'noite'
   },
   en:{
@@ -65,6 +66,7 @@ var T = {
     f_error:'⚠ Something went wrong. Please try again later.',f_conn:'⚠ Something went wrong. Please try again later.',
     f_dev:'Developed by',f_rights:'All rights reserved.',
     availability:'Available for new projects',
+    copied:'Copied!',
     clock_lbl:'Brazil',pm:'AM',pa:'PM',pe:'PM'
   },
   es:{
@@ -99,6 +101,7 @@ var T = {
     f_error:'⚠ Algo salió mal. Inténtalo de nuevo más tarde.',f_conn:'⚠ Algo salió mal. Inténtalo de nuevo más tarde.',
     f_dev:'Desarrollado por',f_rights:'Todos los derechos reservados.',
     availability:'Disponible para nuevos proyectos',
+    copied:'¡Copiado!',
     clock_lbl:'Brasil',pm:'manana',pa:'tarde',pe:'noche'
   }
 };
@@ -107,6 +110,7 @@ var lang = 'pt';
 
 function setLang(l) {
   lang = l;
+  clearTimeout(statusTimer); clearStatus();
   document.getElementById('langLbl').textContent = l.toUpperCase();
   document.querySelectorAll('[data-i]').forEach(function(el) {
     var v = T[l][el.getAttribute('data-i')];
@@ -248,9 +252,7 @@ document.getElementById('cForm').addEventListener('submit', function(e) {
 
   btn.disabled = true;
   btn.textContent = T[lang].f_sending;
-  status.textContent = T[lang].f_sending;
-  status.className = 'f-status sending';
-  status.style.display = '';
+  status.className = 'f-status';
 
   // Envia direto para o Formspree
   fetch('https://formspree.io/f/mdawddwj', {
@@ -272,13 +274,37 @@ document.getElementById('cForm').addEventListener('submit', function(e) {
     }
     btn.disabled = false;
     btn.textContent = T[lang].f_send;
+    scheduleStatusClear();
   })
   .catch(function() {
     status.textContent = T[lang].f_conn;
     status.className = 'f-status error';
     btn.disabled = false;
     btn.textContent = T[lang].f_send;
+    scheduleStatusClear();
   });
+});
+
+// ── Auto-clear status ──
+var statusTimer;
+function clearStatus() {
+  var status = document.getElementById('f-status');
+  if (!status) return;
+  status.className = 'f-status';
+  status.textContent = '';
+}
+function scheduleStatusClear() {
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(function() {
+    var status = document.getElementById('f-status');
+    if (!status) return;
+    status.classList.add('fading');
+    setTimeout(clearStatus, 350);
+  }, 4000);
+}
+// Limpar ao digitar em qualquer campo
+document.querySelectorAll('#f-name,#f-company,#f-email,#f-msg').forEach(function(el) {
+  el.addEventListener('input', clearStatus);
 });
 
 setLang('pt');
@@ -397,7 +423,7 @@ if (hamBtn) {
   btn.addEventListener('click', function() {
     var email = document.getElementById('c-email-link').textContent;
     navigator.clipboard.writeText(email).then(function() {
-      feedback.textContent = 'Copiado!';
+      feedback.textContent = T[lang].copied;
       feedback.classList.add('show');
       clearTimeout(timer);
       timer = setTimeout(function() { feedback.classList.remove('show'); }, 1800);
