@@ -30,6 +30,7 @@ var T = {
     f_sending:'Enviando...',f_success:'✔ Mensagem enviada com sucesso. Responderei em breve.',
     f_error:'⚠ Algo deu errado. Tente novamente mais tarde.',f_conn:'⚠ Algo deu errado. Tente novamente mais tarde.',
     f_dev:'Desenvolvido por',f_rights:'Todos os direitos reservados.',
+    availability:'Disponível para novos projetos',
     clock_lbl:'Brasil',pm:'manha',pa:'tarde',pe:'noite'
   },
   en:{
@@ -63,6 +64,7 @@ var T = {
     f_sending:'Sending...',f_success:'✔ Message sent successfully. I\'ll get back to you soon.',
     f_error:'⚠ Something went wrong. Please try again later.',f_conn:'⚠ Something went wrong. Please try again later.',
     f_dev:'Developed by',f_rights:'All rights reserved.',
+    availability:'Available for new projects',
     clock_lbl:'Brazil',pm:'AM',pa:'PM',pe:'PM'
   },
   es:{
@@ -96,6 +98,7 @@ var T = {
     f_sending:'Enviando...',f_success:'✔ Mensaje enviado con éxito. Te responderé pronto.',
     f_error:'⚠ Algo salió mal. Inténtalo de nuevo más tarde.',f_conn:'⚠ Algo salió mal. Inténtalo de nuevo más tarde.',
     f_dev:'Desarrollado por',f_rights:'Todos los derechos reservados.',
+    availability:'Disponible para nuevos proyectos',
     clock_lbl:'Brasil',pm:'manana',pa:'tarde',pe:'noche'
   }
 };
