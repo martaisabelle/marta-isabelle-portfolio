@@ -27,8 +27,8 @@ var T = {
     f_ph_name:'Seu nome',f_ph_company:'Sua empresa',f_ph_email:'contato@empresa.com',f_ph_msg:'Conte-me sobre seu projeto...',
     f_err_name:'Nome obrigatório (mínimo 2 caracteres).',f_err_email:'E-mail inválido.',
     f_err_msg_short:'Mensagem muito curta (mínimo 10 caracteres).',f_err_msg_long:'Mensagem excede 1000 caracteres.',
-    f_sending:'Enviando...',f_success:'✓ Mensagem enviada! Responderei em breve.',
-    f_error:'Erro ao enviar. Tente novamente.',f_conn:'Erro de conexão. Verifique sua internet.',
+    f_sending:'Enviando...',f_success:'✔ Mensagem enviada com sucesso. Responderei em breve.',
+    f_error:'⚠ Algo deu errado. Tente novamente mais tarde.',f_conn:'⚠ Algo deu errado. Tente novamente mais tarde.',
     f_dev:'Desenvolvido por',f_rights:'Todos os direitos reservados.',
     clock_lbl:'Brasil',pm:'manha',pa:'tarde',pe:'noite'
   },
@@ -60,8 +60,8 @@ var T = {
     f_ph_name:'Your name',f_ph_company:'Your company',f_ph_email:'contact@company.com',f_ph_msg:'Tell me about your project...',
     f_err_name:'Name required (minimum 2 characters).',f_err_email:'Invalid email.',
     f_err_msg_short:'Message too short (minimum 10 characters).',f_err_msg_long:'Message exceeds 1000 characters.',
-    f_sending:'Sending...',f_success:'✓ Message sent! I will reply soon.',
-    f_error:'Error sending message. Try again.',f_conn:'Connection error. Check your internet.',
+    f_sending:'Sending...',f_success:'✔ Message sent successfully. I\'ll get back to you soon.',
+    f_error:'⚠ Something went wrong. Please try again later.',f_conn:'⚠ Something went wrong. Please try again later.',
     f_dev:'Developed by',f_rights:'All rights reserved.',
     clock_lbl:'Brazil',pm:'AM',pa:'PM',pe:'PM'
   },
@@ -93,8 +93,8 @@ var T = {
     f_ph_name:'Tu nombre',f_ph_company:'Tu empresa',f_ph_email:'contacto@empresa.com',f_ph_msg:'Cuéntame sobre tu proyecto...',
     f_err_name:'Nombre obligatorio (mínimo 2 caracteres).',f_err_email:'Correo inválido.',
     f_err_msg_short:'Mensaje demasiado corto (mínimo 10 caracteres).',f_err_msg_long:'El mensaje supera los 1000 caracteres.',
-    f_sending:'Enviando...',f_success:'✓ Mensaje enviado. Responderé pronto.',
-    f_error:'Error al enviar. Inténtalo de nuevo.',f_conn:'Error de conexión. Verifica tu internet.',
+    f_sending:'Enviando...',f_success:'✔ Mensaje enviado con éxito. Te responderé pronto.',
+    f_error:'⚠ Algo salió mal. Inténtalo de nuevo más tarde.',f_conn:'⚠ Algo salió mal. Inténtalo de nuevo más tarde.',
     f_dev:'Desarrollado por',f_rights:'Todos los derechos reservados.',
     clock_lbl:'Brasil',pm:'manana',pa:'tarde',pe:'noche'
   }
@@ -245,14 +245,14 @@ document.getElementById('cForm').addEventListener('submit', function(e) {
 
   btn.disabled = true;
   btn.textContent = T[lang].f_sending;
-  status.className = 'f-status';
-  status.style.display = 'none';
+  status.textContent = T[lang].f_sending;
+  status.className = 'f-status sending';
+  status.style.display = '';
 
-  // Envia para o backend local (que repassa ao Formspree)
-  // Em produção, troque pela URL do seu servidor deployado
-  fetch('http://localhost:3000/api/contact', {
+  // Envia direto para o Formspree
+  fetch('https://formspree.io/f/mdawddwj', {
     method : 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body   : JSON.stringify(payload),
   })
   .then(function(res) { return res.json().then(function(d) { return { ok: res.ok, data: d }; }); })
