@@ -91,9 +91,12 @@ section{padding:7rem 0}
 
 /* SKILLS */
 .skills-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.sk-card{background:var(--bgc);border:.5px solid var(--br);border-radius:16px;padding:1.5rem;transition:border-color .2s,transform .2s}
-.sk-card:hover{border-color:var(--brs);transform:translateY(-4px)}
-.sk-icon{width:36px;height:36px;border-radius:10px;background:rgba(29,78,216,.12);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:18px}
+.sk-card{background:var(--bgc);border:.5px solid var(--br);border-radius:16px;padding:1.5rem;transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+.sk-card:hover{border-color:var(--brs);transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,.35)}
+.sk-icon{width:36px;height:36px;border-radius:10px;background:rgba(29,78,216,.12);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:20px;transition:transform .35s cubic-bezier(.16,1,.3,1);filter:drop-shadow(0 2px 6px rgba(59,130,246,.25))}
+.sk-icon-img{width:22px;height:22px;object-fit:contain}
+.sk-card:hover .sk-icon{transform:scale(1.12)}
+.sk-icon--duo{width:52px;gap:4px}
 .sk-name{font-size:15px;font-weight:700;color:var(--tp);margin-bottom:4px}
 .sk-desc{font-size:13px;color:var(--ts);line-height:1.5}
 

@@ -7,7 +7,7 @@ var T = {
     skills_title:'Habilidades',
     skill_html:'Estrutura semantica e estilizacao moderna com Flexbox, Grid e animacoes.',
     skill_js:'Logica, interatividade e manipulacao do DOM para experiencias dinamicas.',
-    skill_react:'Componentes reutilizaveis e interfaces reativas com hooks e state management.',
+    skill_react:'Criação de interfaces reativas com componentes reutilizáveis, hooks e gerenciamento de estado.',
     skill_node:'JavaScript server-side para servicos backend rapidos e escalaveis.',
     skill_git:'Controle de versao, colaboracao e boas praticas de desenvolvimento.',
     skill_resp_title:'Design Responsivo',skill_resp:'Layouts que funcionam perfeitamente em qualquer tamanho de tela.',
