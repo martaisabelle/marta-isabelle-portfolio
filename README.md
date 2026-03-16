@@ -1,6 +1,9 @@
-# Marta Isabelle Portfolio
+# Marta Isabelle — Frontend Developer Portfolio
 
-Frontend developer portfolio showcasing projects, skills, and experiments.
+🌐 **Live Website:**  
+https://martaisabelle.vercel.app/
+
+This portfolio showcases my frontend development projects and skills.
 
 ## Preview
 
