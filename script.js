@@ -2,27 +2,27 @@ var T = {
   pt:{
     nav_skills:'Skills',nav_work:'Trabalho',nav_about:'Sobre',nav_contact:'Contato',
     hero_eyebrow:'// desenvolvedora frontend',hero_role:'criando interfaces que ganham vida',
-    hero_desc:'Sou desenvolvedora frontend com paixao por criar experiencias de usuario intuitivas e acessiveis. Cursando Bacharelado em Ciencia e Tecnologia na UFRN.',
+    hero_desc:'Sou desenvolvedora frontend com paixão por criar experiências de usuário intuitivas e acessíveis. Cursando Bacharelado em Ciência e Tecnologia na UFRN.',
     hero_cta_work:'Ver trabalhos',hero_cta_contact:'Entre em contato',hero_cta_cv:'Baixar CV',
     skills_title:'Habilidades',
-    skill_html:'Estrutura semantica e estilizacao moderna com Flexbox, Grid e animacoes.',
-    skill_js:'Logica, interatividade e manipulacao do DOM para experiencias dinamicas.',
+    skill_html:'Estrutura semântica e estilização moderna com Flexbox, Grid e animações.',
+    skill_js:'Lógica, interatividade e manipulação do DOM para experiências dinâmicas.',
     skill_react:'Criação de interfaces reativas com componentes reutilizáveis, hooks e gerenciamento de estado.',
-    skill_node:'JavaScript server-side para servicos backend rapidos e escalaveis.',
-    skill_git:'Controle de versao, colaboracao e boas praticas de desenvolvimento.',
+    skill_node:'JavaScript server-side para serviços backend rápidos e escaláveis.',
+    skill_git:'Controle de versão, colaboração e boas práticas de desenvolvimento.',
     skill_resp_title:'Design Responsivo',skill_resp:'Layouts que funcionam perfeitamente em qualquer tamanho de tela.',
     work_title:'Trabalho',work_sub:'// alguns dos meus trabalhos recentes',proj_img:'// adicionar imagem',
-    p1t:'Nome do Projeto',p1d:'Descreva o que este projeto faz e o que voce aprendeu.',
-    p2t:'Nome do Projeto',p2d:'Descreva o que este projeto faz e o que voce aprendeu.',
-    p3t:'Nome do Projeto',p3d:'Descreva o que este projeto faz e o que voce aprendeu.',
-    p4t:'Nome do Projeto',p4d:'Descreva o que este projeto faz e o que voce aprendeu.',
+    p1t:'Nome do Projeto',p1d:'Descreva o que este projeto faz e o que você aprendeu.',
+    p2t:'Nome do Projeto',p2d:'Descreva o que este projeto faz e o que você aprendeu.',
+    p3t:'Nome do Projeto',p3d:'Descreva o que este projeto faz e o que você aprendeu.',
+    p4t:'Nome do Projeto',p4d:'Descreva o que este projeto faz e o que você aprendeu.',
     about_title:'Sobre mim',
-    about_p1:'Ola! Sou <strong>Marta Isabelle</strong>, desenvolvedora frontend com paixao por criar experiencias intuitivas.',
-    about_p2:'Cursando Bacharelado em <strong>Ciencia e Tecnologia na UFRN</strong>. Gosto de colaborar e transformar ideias em interfaces com proposito.',
-    about_p3:'Cada projeto e uma chance de crescer e entregar algo que as pessoas adoram usar.',
-    stat_uni:'B.Sc. Ciencia e Tecnologia',stat_ded:'dedicacao',stat_loc:'Rio Grande do Norte',stat_grow:'sempre evoluindo',
-    c_eyebrow:'// vamos trabalhar juntos',c_title:'Vamos transformar a sua visao em realidade juntos!',
-    c_sub:'Aberta a novas oportunidades e colaboracoes. Entre em contato.',
+    about_p1:'Olá! Sou <strong>Marta Isabelle</strong>, desenvolvedora frontend com paixão por criar experiências intuitivas.',
+    about_p2:'Cursando Bacharelado em <strong>Ciência e Tecnologia na UFRN</strong>. Gosto de colaborar e transformar ideias em interfaces com propósito.',
+    about_p3:'Cada projeto é uma chance de crescer e entregar algo que as pessoas adoram usar.',
+    stat_uni:'B.Sc. Ciência e Tecnologia',stat_ded:'dedicação',stat_loc:'Rio Grande do Norte',stat_grow:'sempre evoluindo',
+    c_eyebrow:'// vamos trabalhar juntos',c_title:'Vamos transformar a sua visão em realidade juntos!',
+    c_sub:'Aberta a novas oportunidades e colaborações. Entre em contato.',
     f_name:'Nome',f_company:'Empresa',f_msg:'Mensagem',f_send:'Enviar mensagem',
     f_ph_name:'Seu nome',f_ph_company:'Sua empresa',f_ph_email:'contato@empresa.com',f_ph_msg:'Conte-me sobre seu projeto...',
     f_err_name:'Nome obrigatório (mínimo 2 caracteres).',f_err_email:'E-mail inválido.',
@@ -32,7 +32,8 @@ var T = {
     f_dev:'Desenvolvido por',f_rights:'Todos os direitos reservados.',
     availability:'Disponível para novos projetos',
     copied:'Copiado!',
-    clock_lbl:'Brasil',pm:'manha',pa:'tarde',pe:'noite'
+    cv_alert:'Para ativar: salve seu CV como "cv-marta-isabelle.pdf" na mesma pasta e atualize o href do botão.',
+    clock_lbl:'Brasil',pm:'manhã',pa:'tarde',pe:'noite'
   },
   en:{
     nav_skills:'Skills',nav_work:'Work',nav_about:'About',nav_contact:'Contact',
@@ -62,37 +63,38 @@ var T = {
     f_ph_name:'Your name',f_ph_company:'Your company',f_ph_email:'contact@company.com',f_ph_msg:'Tell me about your project...',
     f_err_name:'Name required (minimum 2 characters).',f_err_email:'Invalid email.',
     f_err_msg_short:'Message too short (minimum 10 characters).',f_err_msg_long:'Message exceeds 1000 characters.',
-    f_sending:'Sending...',f_success:'✔ Message sent successfully. I\'ll get back to you soon.',
+    f_sending:'Sending...',f_success:"✔ Message sent successfully. I'll get back to you soon.",
     f_error:'⚠ Something went wrong. Please try again later.',f_conn:'⚠ Something went wrong. Please try again later.',
     f_dev:'Developed by',f_rights:'All rights reserved.',
     availability:'Available for new projects',
     copied:'Copied!',
-    clock_lbl:'Brazil',pm:'AM',pa:'PM',pe:'PM'
+    cv_alert:'To activate: save your CV as "cv-marta-isabelle.pdf" in the same folder and update the button href.',
+    clock_lbl:'Brazil',pm:'AM',pa:'PM',pe:'AM'
   },
   es:{
     nav_skills:'Skills',nav_work:'Trabajo',nav_about:'Sobre',nav_contact:'Contacto',
     hero_eyebrow:'// desarrolladora frontend',hero_role:'creando interfaces que cobran vida',
-    hero_desc:'Soy desarrolladora frontend apasionada por crear experiencias intuitivas. Cursando Licenciatura en Ciencia y Tecnologia en la UFRN.',
-    hero_cta_work:'Ver trabajos',hero_cta_contact:'Contactame',hero_cta_cv:'Descargar CV',
+    hero_desc:'Soy desarrolladora frontend apasionada por crear experiencias intuitivas. Cursando Licenciatura en Ciencia y Tecnología en la UFRN.',
+    hero_cta_work:'Ver trabajos',hero_cta_contact:'Contáctame',hero_cta_cv:'Descargar CV',
     skills_title:'Habilidades',
-    skill_html:'Estructura semantica y estilos modernos con Flexbox, Grid y animaciones.',
-    skill_js:'Logica dinamica, interactividad y manipulacion del DOM.',
+    skill_html:'Estructura semántica y estilos modernos con Flexbox, Grid y animaciones.',
+    skill_js:'Lógica dinámica, interactividad y manipulación del DOM.',
     skill_react:'Componentes reutilizables e interfaces reactivas con hooks.',
     skill_node:'JavaScript del lado del servidor para servicios backend escalables.',
-    skill_git:'Control de versiones, colaboracion y buenas practicas.',
-    skill_resp_title:'Diseno Responsivo',skill_resp:'Layouts que funcionan en cualquier pantalla.',
-    work_title:'Trabajo',work_sub:'// algunos de mis ultimos trabajos',proj_img:'// anadir imagen',
-    p1t:'Nombre del Proyecto',p1d:'Describe que hace este proyecto y que aprendiste.',
-    p2t:'Nombre del Proyecto',p2d:'Describe que hace este proyecto y que aprendiste.',
-    p3t:'Nombre del Proyecto',p3d:'Describe que hace este proyecto y que aprendiste.',
-    p4t:'Nombre del Proyecto',p4d:'Describe que hace este proyecto y que aprendiste.',
-    about_title:'Sobre mi',
-    about_p1:'Hola! Soy <strong>Marta Isabelle</strong>, desarrolladora frontend apasionada por experiencias intuitivas.',
-    about_p2:'Cursando Licenciatura en <strong>Ciencia y Tecnologia en la UFRN</strong>.',
+    skill_git:'Control de versiones, colaboración y buenas prácticas.',
+    skill_resp_title:'Diseño Responsivo',skill_resp:'Layouts que funcionan en cualquier pantalla.',
+    work_title:'Trabajo',work_sub:'// algunos de mis últimos trabajos',proj_img:'// añadir imagen',
+    p1t:'Nombre del Proyecto',p1d:'Describe qué hace este proyecto y qué aprendiste.',
+    p2t:'Nombre del Proyecto',p2d:'Describe qué hace este proyecto y qué aprendiste.',
+    p3t:'Nombre del Proyecto',p3d:'Describe qué hace este proyecto y qué aprendiste.',
+    p4t:'Nombre del Proyecto',p4d:'Describe qué hace este proyecto y qué aprendiste.',
+    about_title:'Sobre mí',
+    about_p1:'¡Hola! Soy <strong>Marta Isabelle</strong>, desarrolladora frontend apasionada por experiencias intuitivas.',
+    about_p2:'Cursando Licenciatura en <strong>Ciencia y Tecnología en la UFRN</strong>.',
     about_p3:'Cada proyecto es una oportunidad de crecer.',
-    stat_uni:'Lic. Ciencia y Tecnologia',stat_ded:'dedicacion',stat_loc:'Rio Grande do Norte',stat_grow:'siempre creciendo',
-    c_eyebrow:'// trabajemos juntos',c_title:'Hagamos realidad tu vision juntos!',
-    c_sub:'Abierta a nuevas oportunidades. Escribeme.',
+    stat_uni:'Lic. Ciencia y Tecnología',stat_ded:'dedicación',stat_loc:'Rio Grande do Norte',stat_grow:'siempre creciendo',
+    c_eyebrow:'// trabajemos juntos',c_title:'¡Hagamos realidad tu visión juntos!',
+    c_sub:'Abierta a nuevas oportunidades. Escríbeme.',
     f_name:'Nombre',f_company:'Empresa',f_msg:'Mensaje',f_send:'Enviar mensaje',
     f_ph_name:'Tu nombre',f_ph_company:'Tu empresa',f_ph_email:'contacto@empresa.com',f_ph_msg:'Cuéntame sobre tu proyecto...',
     f_err_name:'Nombre obligatorio (mínimo 2 caracteres).',f_err_email:'Correo inválido.',
@@ -102,7 +104,8 @@ var T = {
     f_dev:'Desarrollado por',f_rights:'Todos los derechos reservados.',
     availability:'Disponible para nuevos proyectos',
     copied:'¡Copiado!',
-    clock_lbl:'Brasil',pm:'manana',pa:'tarde',pe:'noche'
+    cv_alert:'Para activar: guarda tu CV como "cv-marta-isabelle.pdf" en la misma carpeta y actualiza el href del botón.',
+    clock_lbl:'Brasil',pm:'mañana',pa:'tarde',pe:'noche'
   }
 };
 
@@ -114,7 +117,9 @@ function setLang(l) {
   document.getElementById('langLbl').textContent = l.toUpperCase();
   document.querySelectorAll('[data-i]').forEach(function(el) {
     var v = T[l][el.getAttribute('data-i')];
-    if (v !== undefined) el.innerHTML = v;
+    if (v !== undefined) {
+      if (/<[a-z]/i.test(v)) { el.innerHTML = v; } else { el.textContent = v; }
+    }
   });
   // Atualiza placeholders do formulário
   var t = T[l];

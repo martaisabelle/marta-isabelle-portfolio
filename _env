@@ -1,0 +1,3 @@
+PORT=3000
+FORMSPREE_ID=mdawddwj
+ALLOWED_ORIGINS=https://martaisabelle.dev

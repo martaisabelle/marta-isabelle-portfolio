@@ -21,29 +21,38 @@ app.use(helmet({
     directives: {
       defaultSrc : ["'self'"],
       scriptSrc  : ["'self'"],
-      styleSrc   : ["'self'", "https://fonts.googleapis.com"],
-      fontSrc    : ["'self'", "https://fonts.gstatic.com"],
-      imgSrc     : ["'self'", "data:"],
+      styleSrc   : ["'self'", "https://fonts.googleapis.com", "https://cdn.jsdelivr.net"],
+      fontSrc    : ["'self'", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net"],
+      imgSrc     : ["'self'", "data:", "https://martaisabelle.dev"],
       connectSrc : ["'self'", "https://formspree.io"],
       frameAncestors: ["'none'"],
     },
   },
   referrerPolicy       : { policy: 'strict-origin-when-cross-origin' },
   permittedCrossDomainPolicies: false,
+  hsts: {
+    maxAge: 31536000,
+    includeSubDomains: true,
+    preload: true,
+  },
 }));
 
 // Parse JSON no body
-app.use(express.json());
+app.use(express.json({ limit: '10kb' }));
 
 // CORS — permite apenas o seu domínio chamar a API
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5500')
   .split(',')
   .map(o => o.trim());
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 app.use(cors({
   origin: (origin, callback) => {
-    // Permite chamadas sem origin (ex: testes locais com curl)
-    if (!origin || allowedOrigins.includes(origin)) {
+    // Em produção, exige origin válida; em dev permite sem origin (curl, Postman)
+    if (!isProduction && !origin) {
+      callback(null, true);
+    } else if (origin && allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Origem não permitida pelo CORS'));
