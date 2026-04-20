@@ -1,4 +1,4 @@
-# Marta Isabelle — Frontend Developer Portfolio
+# Marta Isabelle — Portfolio
 
 🌐 **Live Website:**  
 https://martaisabelle.vercel.app/
