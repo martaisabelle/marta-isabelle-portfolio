@@ -135,13 +135,38 @@ document.getElementById('langBtn').addEventListener('click', function() {
   setLang(langs[(langs.indexOf(lang)+1) % 3]);
 });
 
-var dark = true;
+// ── THEME: 3-mode cycle dark → light → sunny ──
+var themes = ['dark', 'light', 'sunny'];
+var themeIdx = 0;
+var themeIcons = {
+  dark:  '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>',
+  light: '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>',
+  sunny: '<path d="M17 8C13.5 4 8 4.5 5 8c-2 2.5-2 6 0 8.5C6.5 18.5 9 20 12 20s5.5-1.5 7-3.5c2-2.5 2-6 0-8.5z" stroke-linejoin="round"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="7.5" y1="3.5" x2="8.5" y2="5"/><line x1="16.5" y1="3.5" x2="15.5" y2="5"/>'
+};
+
+// Pre-load palm image and set as background-image on the overlay
+(function() {
+  var palmEl = document.getElementById('sunny-palm');
+  if (!palmEl) return;
+  var img = new Image();
+  img.onload = function() {
+    var url = 'url("' + img.src + '")';
+    palmEl.style.backgroundImage = url;
+  };
+  // Try relative path first (works when files are together locally)
+  img.src = 'palm.jpg';
+})();
+
 document.getElementById('themeBtn').addEventListener('click', function() {
-  dark = !dark;
-  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
-  document.getElementById('themeIco').innerHTML = dark
-    ? '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'
-    : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+  var ico = document.getElementById('themeIco');
+  ico.classList.add('switching');
+  setTimeout(function() {
+    themeIdx = (themeIdx + 1) % 3;
+    var t = themes[themeIdx];
+    document.documentElement.setAttribute('data-theme', t);
+    ico.innerHTML = themeIcons[t];
+    ico.classList.remove('switching');
+  }, 220);
 });
 
 function updateClock() {
