@@ -7,7 +7,7 @@ This portfolio showcases my frontend development projects and skills.
 
 ## Preview
 
-![Portfolio preview](img/screenshot.png)
+![Portfolio preview](docs/screenshot.png)
 
 ## Technologies
 - HTML
